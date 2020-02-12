@@ -1,6 +1,9 @@
 {
   "name": "expensify",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.14.1"
+  },
   "main": "index.js",
   "author": "Volodymyr Zherebetskyi",
   "license": "MIT",
