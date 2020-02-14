@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
 
+import totalExpenses from '../selectors/total-expenses';
+
 const ExpenseListItem = ({ description, amount, createAt, id }) => (
     <div>
         {/* { expenses.map(element => 
