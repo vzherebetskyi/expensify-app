@@ -29,26 +29,6 @@ export class EditExpensePage extends React.Component {
     }
 }
 
-// const EditExpensePage = (props) => {
-//     console.log(props);
-//     return (
-//         <div>
-//           <ExpenseForm
-//           expense = { props.expenses }
-//           onSubmit = {(expense) => {
-//             props.dispatch(editExpenses(props.expenses.id, expense));
-//             props.history.push('/');
-//           }}
-//           />
-//            <button onClick = {() => {
-//             props.dispatch(removeExpense( { id : props.expenses.id }  ));
-//             props.history.push('/');
-//         }            
-//         } >Remove</button>
-//         </div>
-//     );
-// };
-
 const connectedEditExpensePage = (state, props) => {
     return{
         expenses: state.expenses.find((expense) => 
