@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ExpenseForm from './ExpenseForm';
-import { editExpenses, removeExpense } from '../actions/expenses';
+import { editExpenses, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
     onSubmit = (expense) => {
@@ -32,14 +32,14 @@ export class EditExpensePage extends React.Component {
 const connectedEditExpensePage = (state, props) => {
     return{
         expenses: state.expenses.find((expense) => 
-        expense.id === props.match.params.id   
+        expense.id === props.match.params.id
         )
     };
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
     editExpenses: (id, expense) => dispatch(editExpenses(id, expense)),
-    removeExpense: (data) => dispatch(removeExpense(data))
+    removeExpense: (data) => dispatch(startRemoveExpense(data))
 });
 
 export default connect(connectedEditExpensePage, mapDispatchToProps)(EditExpensePage);

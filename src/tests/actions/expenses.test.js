@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { startAddExpense, addExpense, removeExpense, editExpenses, setExpenses, startSetExpenses } from '../../actions/expenses';
+import { startAddExpense, addExpense, removeExpense, editExpenses, setExpenses, startSetExpenses, startRemoveExpense } from '../../actions/expenses';
 import { expenses } from '../test_cases';
 import database from '../../firebase/firebase';
 
@@ -107,6 +107,26 @@ test('should fetch the expenses from firebase', (done) => {
             type: 'SET_EXPENSES',
             expenses
         });
+        done();
+    });
+});
+
+test('should remove expenses', (done) => {
+    const store = createMockStore({});
+    const id = '';
+
+    store.dispatch(startRemoveExpense(id)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'REMOVE_EXPENSE',
+            expense: {
+                id: ''
+            }
+        });
+
+        return database.ref(`expenses/${actions[0].expense.id}`).once('value');
+    }).then((snapshot) => {
+        expect(snapshot.val()).toEqual(null);
         done();
     });
 });
