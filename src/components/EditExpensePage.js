@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import ExpenseForm from './ExpenseForm';
-import { editExpenses, startRemoveExpense } from '../actions/expenses';
+import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
     onSubmit = (expense) => {
-        this.props.editExpenses(this.props.expenses.id, expense);
+        this.props.startEditExpense(this.props.expenses.id, expense);
         this.props.history.push('/');
     };
 
     removeExpense = () => {
-        this.props.removeExpense({ id: this.props.expenses.id });
+        this.props.startRemoveExpense({ id: this.props.expenses.id });
         this.props.history.push('/');
     };
 
@@ -38,8 +37,8 @@ const connectedEditExpensePage = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
-    editExpenses: (id, expense) => dispatch(editExpenses(id, expense)),
-    removeExpense: (data) => dispatch(startRemoveExpense(data))
+    startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
+    startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
 });
 
 export default connect(connectedEditExpensePage, mapDispatchToProps)(EditExpensePage);
