@@ -12,7 +12,7 @@ export const ExpenseList = ({expenses}) => (
         ) : (expenses.map(element => {
                 return <ExpenseListItem key = {element.id} {...element} />;
              }))
-    }    
+    }
 </div>
 );
 
