@@ -1,37 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseDashboardPage correctly 1`] = `
-<header>
-  <h1>
-    Expensify
-  </h1>
-  <div>
-    <NavLink
-      activeClassName="is-active"
-      ariaCurrent="true"
-      exact={true}
-      to="/"
-    >
-      Go to Dashboard
-    </NavLink>
-  </div>
-  <div>
-    <NavLink
-      activeClassName="is-active"
-      ariaCurrent="true"
-      to="/create"
-    >
-      Go to add expense page
-    </NavLink>
-  </div>
-  <div>
-    <NavLink
-      activeClassName="is-active"
-      ariaCurrent="true"
-      to="/help"
-    >
-      Go to help page!
-    </NavLink>
-  </div>
-</header>
+<div>
+  <Connect(Header) />
+  <Connect(ExpenseListFilters) />
+  <Connect(ExpensesSummary) />
+  <Connect(ExpenseList) />
+</div>
 `;

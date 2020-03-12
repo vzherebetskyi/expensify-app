@@ -133,7 +133,7 @@ test('should remove expenses', (done) => {
     });
 });
 
-test('should edit expenses', () => {
+test('should edit expenses', (done) => {
     const store = createMockStore({});
     const testData = {
         description: 'Wine',
@@ -150,8 +150,9 @@ test('should edit expenses', () => {
             updates: testData
         });
 
-        return database.ref(`expenses/${actions[0].expense.id}`).once('value');
+        return database.ref(`expenses/${expenses[2].id}`).once('value');
     }).then((snapshot) => {
         expect(snapshot.val()).toEqual(testData);
+        done();
     });
 });
