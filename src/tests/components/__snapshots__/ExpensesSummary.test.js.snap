@@ -1,16 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpensesSummary component 1`] = `
-<div>
-  <p>
-    In general there are 
-    0
-     expenses!
-  </p>
-  <p>
-    In total you have spent 
-    $0.00
-     
-  </p>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      In general there are 
+      <span>
+        0
+      </span>
+       expense(-s)! In total you have spent 
+      <span>
+        $0.00
+      </span>
+    </h1>
+    <div
+      className="page-header__actions"
+    >
+      <Link
+        className="expense-summary__add-expense-button"
+        replace={false}
+        to="/create"
+      >
+        Add Expense
+      </Link>
+    </div>
+  </div>
 </div>
 `;
